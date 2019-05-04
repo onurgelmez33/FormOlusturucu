@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "FormOlustur";
+}
+@using (Html.BeginForm())
+{
+    <button type="button" id="alanEkle" class="btn btn-primary">Alan Ekle</button>
+    <div id="appendArea">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Form Oluştur</button>
+}
+
+@section scripts{
+    <script>
+        i = 0;
+        $("#alanEkle").click(function () {
+            var appendArea = $("#appendArea");
+            var el = "<input type='hidden' name='model[" + i + "].id' value='" + i + "'/><input type='text' name='model[" + i + "].Name'/><br/><input type='text' name='model[" + i + "].ValueType'/><br/>"
+            appendArea.append(el);
+            i++;
+        });
+    </script>
+}

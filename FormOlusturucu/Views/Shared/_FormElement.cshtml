@@ -1,0 +1,24 @@
+﻿@model FormOlusturucu.Models.FormElement
+
+@if (Model.InputType == "text")
+{
+    <input type="text" name="@Model.Name" placeholder="@Model.Placeholder" value="@Model.Value" />
+}
+else if (Model.InputType == "number")
+{
+    <input type="number" name="@Model.Name" placeholder="@Model.Placeholder" value="@Model.Value" />
+}
+else if (Model.InputType == "select")
+{
+<select name="@Model.Name" multiple>
+    @if (Model.Options.Contains(";"))
+    {
+        foreach (var item in Model.Options.Split(';'))
+        {
+            string val = item.Split(':')[0];
+            string el = item.Split(':')[1];
+            <option value="@val">@el</option>
+        }
+    }
+</select>
+}

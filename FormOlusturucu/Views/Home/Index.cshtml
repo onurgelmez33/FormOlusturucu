@@ -1,0 +1,15 @@
+﻿@model List<FormOlusturucu.Models.FormElement>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    foreach (var item in Model)
+    {
+        Html.RenderPartial("_FormElement", item);
+    }
+    <button type="submit" class="btn btn-primary">Gönder</button>
+}

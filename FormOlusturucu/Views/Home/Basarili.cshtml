@@ -1,0 +1,9 @@
+﻿@model FormCollection
+@{
+    ViewBag.Title = "Basarili";
+}
+
+@foreach (var item in Model.AllKeys)
+{
+    @item<text> = </text>@Model.Get(item)<br />
+}
